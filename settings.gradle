@@ -1,0 +1,1 @@
+include ':Mobile.View', ':Mobile.Domain', ':Mobile.Service', ':Mobile.Dao'
