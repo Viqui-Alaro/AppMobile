@@ -3,7 +3,29 @@ apply plugin: 'java-library'
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path:':Mobile.Dao')
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+}
 
+buildscript {
+    ext.kotlin_version = '1.1.60'
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+dependencies {
+    // RxJava and RxAndroid
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+}
+
+repositories {
+    mavenCentral()
+    google()
 }
 
 sourceCompatibility = "1.7"

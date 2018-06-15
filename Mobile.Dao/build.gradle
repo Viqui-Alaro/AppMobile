@@ -1,8 +1,32 @@
 apply plugin: 'java-library'
 
+
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation libs.rxJava
 }
+
+
+buildscript {
+
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+       }
+}
+
+dependencies {
+    // RxJava and RxAndroid
+    implementation libs.rxJava
+    implementation libs.rxAndroid
+
+}
+repositories {
+    mavenCentral()
+    google()
+}
+
 
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"

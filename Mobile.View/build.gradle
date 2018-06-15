@@ -1,5 +1,16 @@
 apply plugin: 'com.android.application'
 
+
+ext {
+    supportLibraryVersion = "26.1.0"
+    constraintLayoutVersion = "1.0.2"
+    butterKnifeVersion = "8.8.1"
+    daggerVersion = "2.13"
+    conductorVersion = "2.1.4"
+    timberVersion = "4.6.0"
+}
+
+
 android {
     compileSdkVersion 27
     defaultConfig {
