@@ -4,7 +4,10 @@ dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation project(path:':Mobile.Service')
     implementation project(path: ':Mobile.Dao')
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.2.0'
 }
+
 
 sourceCompatibility = "1.7"
 targetCompatibility = "1.7"
