@@ -1,5 +1,9 @@
 package mobile.sin.gob.bo.mobiledao.repositoryImpl;
+
+
 import com.sun.istack.internal.NotNull;
+
+import java.util.List;
 
 import io.reactivex.Completable;
 import io.reactivex.functions.Action;
@@ -45,6 +49,18 @@ public class usuarioRepositoryImpl implements usuarioRepository{
         });
 
         return (Comparable) var2;
+    }
+
+    @Override
+    public usuario findByLogin(String login) {
+        List<usuario> vListaUsuario = null;
+        vListaUsuario = (List<usuario>) usuarioDao.findByLogin(login);
+        if(vListaUsuario.size() >0){
+            usuario vUsuario = vListaUsuario.get(0);
+            return vUsuario;
+        }
+
+        return null;
     }
 
 }

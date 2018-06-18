@@ -1,5 +1,9 @@
 package mobile.sin.gob.bo.mobiledomain.repository;
 
+import com.sun.istack.internal.NotNull;
+
+import java.util.List;
+
 import mobile.sin.gob.bo.mobiledomain.model.usuario;
 
 /**
@@ -10,8 +14,13 @@ public interface usuarioRepository {
 
     Comparable insertOrUpdate(usuario usuario);
     Comparable delete(usuario usuario);
+    usuario findByLogin(String login);
+
+
 
 }
+
+
 
 
 

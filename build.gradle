@@ -23,10 +23,10 @@ buildscript {
     repositories {
         google()
         jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:3.1.2'
-        
 
         // NOTE: Do not place your application dependencies here; they belong
         // in the individual module build.gradle files
@@ -34,6 +34,16 @@ buildscript {
 }
 
 allprojects {
+
+    ext{
+        androidCompileSdkVersion = 26
+        androidVersionCode = 1
+        androidVersionName = "1.0"
+        androidMinSdkVersion = 19
+        androidTargetSdkVersion = 26
+        testInstrumentationRunner = "android.support.test.runner.AndroidJUnitRunner"
+    }
+
     repositories {
         google()
         jcenter()

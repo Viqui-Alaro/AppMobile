@@ -36,6 +36,15 @@ public interface usuarioDaoImpl extends usuarioDao{
     List<usuarioEntity> getUsuariosByRol(Boolean pRol);
 
     /**
+     * Función que realiza la búsqueda de un usuario por el login (Usuario),
+     * retorna el usuario con el login dado
+     * @param pLogin parametro de busqueda de un usuario
+     * @return   retorna un Usuario con el login dado .
+     */
+    @Query("SELECT nombre FROM usuarioEntity WHERE login =:pLogin")
+    usuarioEntity findByLogin(String pLogin);
+
+    /**
      * Función que devuelve a un usuario por el nombre.
      * @param pNombre que es el nombre de el usuario
      * @return  retorna a un usuario por el nombre.
