@@ -8,6 +8,7 @@ import mobile.sin.gob.bo.mobiledao.mapperImpl.usuarioModelMapperImpl;
 import mobile.sin.gob.bo.mobiledomain.model.usuario;
 import mobile.sin.gob.bo.mobiledomain.repository.usuarioRepository;
 
+
 public class usuarioRepositoryImpl implements usuarioRepository{
 
     private final usuarioDaoImpl usuarioDao;
@@ -19,11 +20,11 @@ public class usuarioRepositoryImpl implements usuarioRepository{
     }
 
     @Override
-    public Comparable insertOrUpdate(final usuario usuario) {
+    public Comparable insertOrUpdate(@NotNull final usuario usuario) {
 
-        Completable var1= Completable.fromAction(new Action() {
+        Completable var1= Completable.fromAction((Action) new Action() {
             @Override
-            public void run() throws Exception {
+            public void run(){
 
             usuarioRepositoryImpl.this.usuarioDao.insertOrUpdate(usuarioRepositoryImpl.this.mapper.toEntity(usuario));
          }
@@ -32,11 +33,10 @@ public class usuarioRepositoryImpl implements usuarioRepository{
         return (Comparable) var1;
     }
 
-
     @Override
     public Comparable delete(@NotNull final usuario usuario) {
 
-        Completable var2 = Completable.fromAction(new Action() {
+        Completable var2 = Completable.fromAction((Action) new Action() {
             @Override
             public void run() {
             usuarioRepositoryImpl.this.usuarioDao.delete(usuarioRepositoryImpl.this.mapper.toEntity(usuario));
@@ -46,7 +46,5 @@ public class usuarioRepositoryImpl implements usuarioRepository{
 
         return (Comparable) var2;
     }
-
-
 
 }

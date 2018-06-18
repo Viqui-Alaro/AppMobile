@@ -7,13 +7,15 @@ import mobile.sin.gob.bo.mobiledomain.repository.usuarioModelMapper;
 public class usuarioModelMapperImpl implements usuarioModelMapper {
 
     @Override
-    public usuario fromEntity(Object var1) {
-        return new usuario(var1.getClass().getName());
+    public usuario fromEntity(Object from) {
+        return new usuario(from.getClass().getName());
     }
 
     @Override
-    public usuarioEntity toEntity(Object var1) {
-        return new usuarioEntity(fromEntity(var1).getNombre());
+    public usuarioEntity toEntity(Object from) {
+        return new usuarioEntity(from.getClass().getName());
     }
+
 }
+
 

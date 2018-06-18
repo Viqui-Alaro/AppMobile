@@ -7,5 +7,5 @@ public interface usuarioModelMapper {
     Object fromEntity(Object var1);
     usuarioEntity toEntity(Object var1);
 
-
 }
+

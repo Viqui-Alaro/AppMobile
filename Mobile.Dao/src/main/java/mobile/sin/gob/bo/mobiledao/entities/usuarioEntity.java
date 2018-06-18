@@ -3,6 +3,11 @@ package mobile.sin.gob.bo.mobiledao.entities;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 
+/*
+ * Descripción: - Clase que implementa el entity Usuario, para el registro de Usuarios
+ * @author: viqui.alaro
+ * @version:  1.0
+ */
 
 @Entity(tableName = "usuarioEntity")
 public class usuarioEntity {

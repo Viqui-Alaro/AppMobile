@@ -4,13 +4,16 @@ import android.arch.persistence.room.Dao;
 import android.arch.persistence.room.Delete;
 import android.arch.persistence.room.Insert;
 import android.arch.persistence.room.Query;
-
 import com.sun.istack.internal.NotNull;
-
 import mobile.sin.gob.bo.mobiledomain.repository.usuarioDao;
-
 import java.util.List;
 import mobile.sin.gob.bo.mobiledao.entities.usuarioEntity;
+
+/**
+ * Descripción: - Clase que implementa la Interfaz de Usuario
+ * @author: viqui.alaro
+ * @version:  1.0 - 18/06/2018
+ */
 
 @Dao
 public interface usuarioDaoImpl extends usuarioDao{
@@ -18,51 +21,45 @@ public interface usuarioDaoImpl extends usuarioDao{
     @Insert(onConflict = 1)
     void insertOrUpdate(@NotNull usuarioEntity var1);
 
+    /**
+     * Función que devuelve todos los usuarios
+     * @return  retorna una lista de todos los usuarios.
+     */
     @Query("SELECT * FROM usuarioEntity")
     List<usuarioEntity> getAll();
 
-    @Query("SELECT * FROM usuarioEntity where nombre like :nombre")
-    usuarioEntity findByName(String nombre);
+    /**
+     * Función que devuelve los usuarios por rol.
+     * @param pRol tipo de rol(Admin,Normal)equivalente a (true,false)
+     * @return  retorna una lista de usuarios por rol.
+     */
+    List<usuarioEntity> getUsuariosByRol(Boolean pRol);
+
+    /**
+     * Función que devuelve a un usuario por el nombre.
+     * @param pNombre que es el nombre de el usuario
+     * @return  retorna a un usuario por el nombre.
+     */
+
+    @Query("SELECT * FROM usuarioEntity where nombre like :pNombre")
+    usuarioEntity findByName(String pNombre);
+
+
+    /**
+     * Función que devuelve el numero de usuario.
+     * @return  retorna el numero de usuarios.
+     */
 
     @Query("SELECT COUNT(*) FROM usuarioEntity")
     int count();
 
+    /**
+     * Función que elimina un usuario.
+     * @return  la eliminación de un usuario.
+     */
     @Delete
     void delete(@NotNull usuarioEntity usuarioEntity);
 
-    @Insert
-    void insert(usuarioEntity usuarioEntity);
 
 }
-
-
-
-
-
-
-
-
-
-
-
-/*
-@Dao
-public interface NoteDaoImpl extends NoteDao {
-   @Insert(
-      onConflict = 1
-   )
-   void insertOrUpdate(@NotNull NoteEntity var1);
-
-   @Delete
-   void delete(@NotNull NoteEntity var1);
-
-   @Query("SELECT * FROM notes WHERE id = :id")
-   @NotNull
-   Maybe findNoteById(long var1);
-
-   @Query("SELECT * FROM notes ORDER BY timestamp DESC")
-   @NotNull
-   Single getAllNotes();
-}
- */
 
